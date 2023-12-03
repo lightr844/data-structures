@@ -41,7 +41,7 @@ node* insert(node* T,int x)
     r->right=NULL;
     if(T==NULL)
     return r;
-    p=T;
+    T=p;
     while(p!=NULL)
     {
         q=p;
@@ -90,6 +90,14 @@ void inOrderTraversal(node* root) {
         printf("%d ", root->data);
         inOrderTraversal(root->right);
     }
+}
+int height(node* root) {
+    if (root == NULL)
+    return -1; 
+    int leftHeight = height(root->left);
+    int rightHeight = height(root->right);
+
+    return 1 + max(leftHeight, rightHeight);
 }
 void post(node* root)
 {
